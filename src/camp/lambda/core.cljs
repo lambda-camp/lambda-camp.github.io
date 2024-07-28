@@ -4,7 +4,7 @@
    ["react-dom/client" :as react-dom-client]
    [helix.core :refer [$]]
    [refx.alpha :as refx]
-   [camp.lambda.views.landing :refer [landing]]))
+   [camp.lambda.sections.body :refer [body]]))
 
 (enable-console-print!)
 
@@ -14,7 +14,7 @@
       react-dom-client/createRoot))
 
 (defn render []
-  (->> ($ landing)
+  (->> ($ body)
        ($ react/StrictMode)
        (.render app-root)))
 
