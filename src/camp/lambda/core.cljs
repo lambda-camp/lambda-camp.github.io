@@ -1,10 +1,10 @@
-(ns com.example.core
+(ns camp.lambda.core
   (:require
    ["react" :as react]
    ["react-dom/client" :as react-dom-client]
    [helix.core :refer [$]]
    [refx.alpha :as refx]
-   [com.example.views.landing :refer [landing]]))
+   [camp.lambda.views.landing :refer [landing]]))
 
 (enable-console-print!)
 

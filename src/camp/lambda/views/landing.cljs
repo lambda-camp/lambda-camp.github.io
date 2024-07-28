@@ -1,4 +1,4 @@
-(ns com.example.views.landing
+(ns camp.lambda.views.landing
   (:require
    [helix.core :refer [$ defnc <>]]
    [helix.dom :as d]
