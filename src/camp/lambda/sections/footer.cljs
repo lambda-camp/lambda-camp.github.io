@@ -8,7 +8,7 @@
 
 (defnc footer [{:keys [_]}]
   (d/footer
-    {:className "footer footer-center bg-base-200 text-base-content rounded"}
+    {:className "footer footer-center bg-base-200 text-base-content rounded py-10"}
     (d/nav
       {:className "grid grid-flow-col gap-4"}
       (d/a

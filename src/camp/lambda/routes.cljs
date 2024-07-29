@@ -1,6 +1,7 @@
 (ns camp.lambda.routes
   (:require [camp.lambda.sections.body :refer [body]]
-            [camp.lambda.sections.header :refer [header]]))
+            [camp.lambda.sections.header :refer [header]]
+            [camp.lambda.features.content.view :as content]))
 
 (def routes
   ["/"
@@ -17,6 +18,16 @@
    ["test"
     {:name      ::test
      :view      header
+     :link-text "Test"
+     :controllers
+     [{;; Do whatever initialization needed for test page
+       ;; I.e (refx/dispatch [::events/load-something-with-ajax])
+       ;; Teardown can be done here.
+       }]}]
+
+   ["content/:content-name"
+    {:name      ::content
+     :view      content/view
      :link-text "Test"
      :controllers
      [{;; Do whatever initialization needed for test page

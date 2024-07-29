@@ -15,3 +15,8 @@
  :current-route
  (fn [db]
    (:current-route db)))
+
+(refx/reg-sub
+  :content
+  (fn [db]
+    (:content db)))
