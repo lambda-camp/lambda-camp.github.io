@@ -31,7 +31,7 @@
             "Get Started"))))
 
     (d/div
-      {:className "md:container md:mx-auto"}
+      {:className "md:container md:mx-auto py-10"}
       (d/article
         {:className "prose"}
         ($ markdown {:content (inline-resource "test.mdx")})
