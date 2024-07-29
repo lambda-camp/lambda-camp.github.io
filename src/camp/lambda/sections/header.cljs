@@ -1,9 +1,7 @@
 (ns camp.lambda.sections.header
   (:require
-   [helix.core :refer [$ defnc <>]]
-   [helix.dom :as d]
-   [helix.hooks :as hh]
-   [refx.alpha :as refx]))
+   [helix.core :refer [defnc]]
+   [helix.dom :as d]))
 
 (defnc header [{:keys [_]}]
   (d/div

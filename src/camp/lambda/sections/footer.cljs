@@ -1,10 +1,8 @@
 (ns camp.lambda.sections.footer
   (:require
    [camp.lambda.components.icon :refer [icon]]
-   [helix.core :refer [$ defnc <>]]
-   [helix.dom :as d]
-   [helix.hooks :as hh]
-   [refx.alpha :as refx]))
+   [helix.core :refer [$ defnc]]
+   [helix.dom :as d]))
 
 (defnc footer [{:keys [_]}]
   (d/footer
