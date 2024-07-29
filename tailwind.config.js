@@ -4,8 +4,14 @@ module.exports = {
   content: [
     './public/js/app.js',
     './public/js/index.css',
-    './src/com/example/**/*.cljs'
+    './src/camp/lambda/**/*.cljs'
   ],
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require('daisyui'),
+  ],
+  daisyui: {
+    themes: ["lemonade"],
+  }
 }
 
