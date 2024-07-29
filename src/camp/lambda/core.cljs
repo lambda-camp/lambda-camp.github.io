@@ -1,27 +1,46 @@
 (ns camp.lambda.core
   (:require
-   ["react" :as react]
    ["react-dom/client" :as react-dom-client]
-   [helix.core :refer [$]]
+   [helix.core :refer [$ defnc]]
    [refx.alpha :as refx]
-   [camp.lambda.sections.body :refer [body]]))
+   [reitit.coercion.spec :as rss]
+   [reitit.frontend :as rf]
+   [reitit.frontend.easy :as rfe]
+   [camp.lambda.events]
+   [camp.lambda.subs]
+   [camp.lambda.routes :as routes]))
 
-(enable-console-print!)
+(defn on-navigate [new-match]
+  (when new-match
+    (refx/dispatch [:navigated new-match])))
 
-(defonce app-root
-  (-> js/document
-      (.getElementById "app")
-      react-dom-client/createRoot))
+(def router
+  (rf/router
+   routes/routes
+   {:data {:coercion rss/coercion}}))
 
-(defn render []
-  (->> ($ body)
-       ($ react/StrictMode)
-       (.render app-root)))
+(defn init-routes! []
+  (rfe/start!
+   router
+   on-navigate
+   {:use-fragment true}))
 
-(defn ^:dev/after-load clear-cache-and-render! []
-  (refx/clear-subscription-cache!)
-  (render))
+(defnc router-component [{:keys [_]}]
+  (let [current-route (refx/use-sub [:current-route])]
+    (when current-route
+      (-> current-route :data :view $))))
+
+(def debug? ^boolean goog.DEBUG)
+
+(defn dev-setup []
+  (when debug?
+    (enable-console-print!)
+    (println "dev mode")))
 
 (defn ^:export init []
-  #_(refx/dispatch [:initialize-db])
-  (render))
+  (refx/clear-subscription-cache!)
+  (refx/dispatch-sync [:initialize-db])
+  ;; (dev-setup)
+  (init-routes!)
+  (doto (react-dom-client/createRoot (js/document.getElementById "app"))
+    (.render ($ router-component {:router router}))))

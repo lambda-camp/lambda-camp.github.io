@@ -1,14 +1,14 @@
 (ns camp.lambda.sections.body
   (:require-macros [camp.lambda.utils.macros :refer [inline-resource]])
   (:require
+    ["react-markdown" :default ReactMarkdown]
     [camp.lambda.sections.header :refer [header]]
     [camp.lambda.sections.footer :refer [footer]]
+    [camp.lambda.components.markdown :refer [markdown]]
     [helix.core :refer [$ defnc <>]]
     [helix.dom :as d]
     [helix.hooks :as hh]
     [refx.alpha :as refx]))
-
-(def md-content (inline-resource "./md/test.mdx"))
 
 (defnc body []
   (d/div
@@ -34,7 +34,7 @@
       {:className "md:container md:mx-auto"}
       (d/article
         {:className "prose"}
-        md-content
+        ($ markdown {:content (inline-resource "test.mdx")})
         )) 
 
     ($ footer {})))
