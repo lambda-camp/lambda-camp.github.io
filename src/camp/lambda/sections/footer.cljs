@@ -8,7 +8,7 @@
 
 (defnc footer [{:keys [_]}]
   (d/footer
-    {:className "footer footer-center bg-base-200 text-base-content rounded p-10"}
+    {:className "footer footer-center bg-base-200 text-base-content rounded"}
     (d/nav
       {:className "grid grid-flow-col gap-4"}
       (d/a
@@ -25,6 +25,7 @@
         "Press kit"))
     (d/nav
       {:className "grid grid-flow-col gap-4"}
+
       (d/a
         {:href "#"}
         ;; Twitter logo

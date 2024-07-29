@@ -1,4 +1,5 @@
 (ns camp.lambda.sections.body
+  (:require-macros [camp.lambda.utils.macros :refer [inline-resource]])
   (:require
     [camp.lambda.sections.header :refer [header]]
     [camp.lambda.sections.footer :refer [footer]]
@@ -7,9 +8,33 @@
     [helix.hooks :as hh]
     [refx.alpha :as refx]))
 
+(def md-content (inline-resource "./md/test.mdx"))
+
 (defnc body []
   (d/div
-    {:class "container mx-auto"}
+    {:class "mx-auto"}
     ($ header {})
-    "Hello, World!"
+    (d/div
+      {:className "hero bg-base-200 min-h-screen"}
+      (d/div
+        {:className "hero-content text-center"}
+        (d/div
+          {:className "max-w-md"}
+          (d/h1
+            {:className "text-5xl font-bold"}
+            "Hello there 👋")
+          (d/p
+            {:className "py-6"}
+            "Welcome to Lambda Camp, a place to learn about technology in general with custom contents that community builds, mantain and distribute!")
+          (d/button
+            {:className "btn btn-primary"}
+            "Get Started"))))
+
+    (d/div
+      {:className "md:container md:mx-auto"}
+      (d/article
+        {:className "prose"}
+        md-content
+        )) 
+
     ($ footer {})))

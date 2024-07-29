@@ -7,6 +7,7 @@ module.exports = {
     './src/camp/lambda/**/*.cljs'
   ],
   plugins: [
+    require("@tailwindcss/typography"),
     require('daisyui'),
   ],
   daisyui: {
