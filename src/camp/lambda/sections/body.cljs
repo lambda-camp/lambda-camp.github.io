@@ -1,15 +1,12 @@
 (ns camp.lambda.sections.body
-  (:require-macros [camp.lambda.utils.macros :refer [inline-resource]])
   (:require
     [camp.lambda.sections.header :refer [header]]
     [camp.lambda.sections.footer :refer [footer]]
-    [camp.lambda.components.markdown :refer [markdown]]
     [camp.lambda.components.accordion :refer [accordion]]
     [camp.lambda.components.browser :refer [browser]]
-    [helix.core :refer [$ defnc <>]]
-    [helix.dom :as d]
-    [helix.hooks :as hh]
-    [refx.alpha :as refx]))
+    [camp.lambda.features.content.list :refer [content-list]]
+    [helix.core :refer [$ defnc]]
+    [helix.dom :as d]))
 
 (defnc body []
   (d/div
@@ -77,17 +74,6 @@
           (d/h2
             {:class "text-3xl font-bold"}
             "Contents")
-          (d/ul
-            {:class "menu bg-base-200 rounded-box w-56 my-2"}
-            (d/li
-              (d/a
-                {:href "/#/content/functional"}
-                "Functional programming")))))
-      
-      
-      #_(d/article
-        {:className "prose"}
-        ($ markdown {:content (inline-resource "home.mdx")}))
-      ) 
+          ($ content-list {})))) 
 
     ($ footer {})))

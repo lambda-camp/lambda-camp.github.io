@@ -37,3 +37,8 @@
   :set-content
   (fn [db [_ content]]
     (assoc db :content content)))
+
+(refx/reg-event-db
+  :set-content-list
+  (fn [db [_ content-list]]
+    (assoc db :content-list content-list)))

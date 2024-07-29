@@ -20,3 +20,8 @@
   :content
   (fn [db]
     (:content db)))
+
+(refx/reg-sub
+  :content-list
+  (fn [db]
+    (:content-list db)))

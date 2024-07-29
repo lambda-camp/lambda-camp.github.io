@@ -1,5 +1,4 @@
 (ns camp.lambda.features.content.view
-  (:require-macros [camp.lambda.utils.macros :refer [inline-resource]])
   (:require
     [camp.lambda.components.markdown :refer [markdown]]
     [camp.lambda.sections.header :refer [header]]
