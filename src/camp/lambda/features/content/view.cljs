@@ -15,6 +15,7 @@
   (let [current-route (refx/use-sub [:current-route])
         content-name (get-in current-route [:parameters :path :content-name])
         content (refx/use-sub [:content])]
+
     (hh/use-effect 
       []
       (p/try

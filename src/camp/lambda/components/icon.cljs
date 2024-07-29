@@ -1,9 +1,7 @@
 (ns camp.lambda.components.icon
   (:require
-   [helix.core :refer [$ defnc <>]]
-   [helix.dom :as d]
-   [helix.hooks :as hh]
-   [refx.alpha :as refx]))
+   [helix.core :refer [defnc]]
+   [helix.dom :as d]))
 
 (defnc icon [{:keys [width height viewBox className path-d]}]
   (d/svg
