@@ -1,7 +1,6 @@
 (ns camp.lambda.sections.body
   (:require-macros [camp.lambda.utils.macros :refer [inline-resource]])
   (:require
-    ["react-markdown" :default ReactMarkdown]
     [camp.lambda.sections.header :refer [header]]
     [camp.lambda.sections.footer :refer [footer]]
     [camp.lambda.components.markdown :refer [markdown]]
@@ -34,7 +33,7 @@
       {:className "md:container md:mx-auto py-10"}
       (d/article
         {:className "prose"}
-        ($ markdown {:content (inline-resource "test.mdx")})
+        ($ markdown {:content (inline-resource "home.mdx")})
         )) 
 
     ($ footer {})))

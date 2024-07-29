@@ -32,3 +32,8 @@
  :set-session
  (fn [db [_ session]]
    (assoc db :session session)))
+
+(refx/reg-event-db
+  :set-content
+  (fn [db [_ content]]
+    (assoc db :content content)))
