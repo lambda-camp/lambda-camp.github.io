@@ -8,7 +8,7 @@
     [helix.hooks :as hh]
     [refx.alpha :as refx]))
 
-(def md-content (inline-resource "./md/test.mdx"))
+(def md-content (inline-resource "./camp/lambda/content/test.mdx"))
 
 (defnc body []
   (d/div
