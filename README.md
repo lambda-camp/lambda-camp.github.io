@@ -1,26 +1,15 @@
-# helix-refx-tailwind-example
+# lambda-camp
 
-Minimal helix, refx and tailwind example, with shadow-cljs.
+## Description
 
-## How to use
-```bash
-# Install dependencies
-npm i
+The project aims to assist new students entering the field of Information Technology (IT) by providing a comprehensive guide that covers various areas within this rapidly expanding domain. As technology evolves, students often face uncertainty regarding which career path to pursue and what initial steps to take to achieve their goals. This guide serves as a supportive resource to help them navigate their options and make informed decisions, rather than dictating their success. It will cover a wide range of relevant topics for beginners in IT, from basic concepts to emerging trends and best practices.
 
-# Start application with shadow
-npm run dev
-```
+## Project structure
 
-### After running `npm start`
-App available at http://localhost:8200
-Dev tools available at http://localhost:8300
-nREPL available at port 8777
+The project is built using ClojureScript. You can access our [hosted version](https://lambda-camp.github.io/) to see your content. If you want to publish a content, you can easily:
+- Modify `public/json/data.json` to put your URL content or;
+- Host your content right here at `public/md/title.mdx` with pure markdown;
 
-## Used software
-- [shadow-cljs](https://github.com/thheller/shadow-cljs)
-- [helix](https://github.com/lilactown/helix)
-- [refx](https://github.com/ferdinand-beyer/refx)
-- [tailwind](https://github.com/tailwindlabs/tailwindcss)
+Feel free to use as you want!
 
-## TODO
-- [ ] Test: add sample tests
+To host by yourself you can check [lambda-content](https://github.com/lambda-camp/lambda-content). 
